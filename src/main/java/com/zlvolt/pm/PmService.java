@@ -212,13 +212,18 @@ public class PmService {
         }
         jdbc.update("UPDATE pm_project SET actual_grid_date = ?, status = 'GRID_CONNECTED' WHERE id = ?",
                 Date.valueOf(gridDate), projectId);
+        jdbc.update("""
+                        UPDATE pm_milestone SET status = 'DONE', actual_date = COALESCE(actual_date, ?)
+                        WHERE project_id = ? AND name = '并网'
+                        """, Date.valueOf(gridDate), projectId);
 
         List<Map<String, Object>> stations = jdbc.queryForList("SELECT * FROM om_station WHERE project_id = ?", projectId);
         if (!stations.isEmpty()) {
             Map<String, Object> station = MapUtils.camel(stations.get(0));
-            station.put("devices", MapUtils.camel(jdbc.queryForList(
-                    "SELECT * FROM om_device WHERE station_id = ? ORDER BY id", station.get("id"))));
-            return station;
+            List<Map<String, Object>> devices = MapUtils.camel(jdbc.queryForList(
+                    "SELECT * FROM om_device WHERE station_id = ? ORDER BY id", station.get("id")));
+            station.put("devices", devices);
+            return MapUtils.map("station", station, "devices", devices);
         }
         long stationId = idGen.next("om_station");
         String stationCode = "ST-" + LocalDate.now().getYear() + "-" + String.format("%04d", stationId);

@@ -688,7 +688,9 @@ async function renderPm() {
                     <button class="small" onclick="updateProgress(${detail.id}, ${detail.progress})">进度 +10%</button>
                     <button class="small" onclick="changeOrder(${detail.id})">变更签证</button>
                     <button class="small" onclick="addCost(${detail.id})">归集成本</button>
-                    <button class="small" onclick="gridConnect(${detail.id})">并网登记</button>
+                    ${detail.actualGridDate
+                        ? '<button class="small" disabled>已并网</button>'
+                        : `<button class="small" onclick="gridConnect(${detail.id})">并网登记</button>`}
                     <button class="small" onclick="settleProject(${detail.id})">项目结算</button>
                 </div>
             </div>
