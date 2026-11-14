@@ -1,0 +1,27 @@
+# Build output
+target/
+*.class
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Agent / local tools
+.trae/
+
+# Local screenshots / temp
+.screenshots/
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db

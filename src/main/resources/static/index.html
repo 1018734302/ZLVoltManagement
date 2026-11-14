@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZL-Volt 光伏电站全生命周期管理平台</title>
+    <link rel="icon" href="/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css?v=4">
+</head>
+<body>
+<div id="login" class="login-screen">
+    <div class="login-orbit orbit-a"></div>
+    <div class="login-orbit orbit-b"></div>
+    <div class="login-card">
+        <img class="login-logo" src="/logo.svg" alt="中来股份 ZL-Volt">
+        <div class="login-kicker">PHOTOVOLTAIC LIFECYCLE PLATFORM</div>
+        <h1>光伏电站全生命周期管理平台</h1>
+        <p class="login-desc">CRM · PM · OA · SRM · 供应链 · 财务结算 · 资金 · 运维 · IoT</p>
+        <div class="login-form">
+            <label>账号<input id="username" value="admin" autocomplete="username"></label>
+            <label>密码<input id="password" type="password" value="Admin@123" autocomplete="current-password"></label>
+            <button class="primary block" onclick="login()">进入平台</button>
+            <div class="login-hint">演示账号：admin / Admin@123<br>也可用 sales01、pm01、buyer01、fin01、fund01、om01</div>
+        </div>
+        <div class="login-badges">
+            <span>H2 内存库</span><span>内置 MQTT</span><span>一键全链路</span>
+        </div>
+    </div>
+</div>
+
+<div id="app" class="app hidden">
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="/logo.svg" alt="ZL-Volt">
+            <div class="brand-text"><strong>ZL-Volt</strong><span>光伏全生命周期</span></div>
+        </div>
+        <nav id="nav" class="nav"></nav>
+        <div class="sidebar-footer">
+            <div class="dot"></div>
+            <div><strong>演示环境</strong><span>H2 + 内置 MQTT 1884</span></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div class="title-block">
+                <h1 id="pageTitle">经营驾驶舱</h1>
+                <p id="pageSubtitle">合同、项目、采购、资金、运维一屏掌握</p>
+            </div>
+            <div class="userbox">
+                <div class="avatar" id="avatar">A</div>
+                <div class="user-meta"><strong id="userName">系统管理员</strong><span id="userRole">ADMIN</span></div>
+                <button class="ghost" onclick="logout()">退出</button>
+            </div>
+        </header>
+        <section id="content" class="content"></section>
+    </main>
+</div>
+
+<div id="modal" class="modal hidden">
+    <div class="modal-mask" onclick="closeModal()"></div>
+    <div class="modal-card">
+        <div class="modal-head">
+            <h3 id="modalTitle">操作</h3>
+            <button class="icon-btn" onclick="closeModal()">×</button>
+        </div>
+        <form id="modalForm" onsubmit="submitModal(event)">
+            <div id="modalBody" class="modal-body"></div>
+            <div class="modal-foot">
+                <button type="button" class="ghost" onclick="closeModal()">取消</button>
+                <button type="submit" class="primary">确认</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="/app.js?v=4"></script>
+</body>
+</html>

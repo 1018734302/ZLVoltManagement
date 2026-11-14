@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="104" viewBox="0 0 340 104" role="img" aria-label="中来股份 JOLYWOOD ZL-Volt 光伏电站全生命周期管理平台">
+  <defs>
+    <linearGradient id="zlGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00C06A"/>
+      <stop offset="100%" stop-color="#008F4A"/>
+    </linearGradient>
+    <linearGradient id="zlPanel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D8F5E6"/>
+      <stop offset="100%" stop-color="#9FE3C0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 光伏组件图形 -->
+  <g transform="translate(6, 20)">
+    <rect x="0" y="0" width="64" height="60" rx="8" fill="url(#zlGreen)"/>
+    <g stroke="#E9FFF4" stroke-width="1.6" opacity="0.95">
+      <line x1="7" y1="15" x2="57" y2="15"/>
+      <line x1="7" y1="30" x2="57" y2="30"/>
+      <line x1="7" y1="45" x2="57" y2="45"/>
+      <line x1="23" y1="7" x2="23" y2="53"/>
+      <line x1="41" y1="7" x2="41" y2="53"/>
+    </g>
+    <rect x="5" y="5" width="17" height="8" rx="2" fill="url(#zlPanel)" opacity="0.9"/>
+  </g>
+
+  <!-- 品牌文字 -->
+  <g fill="#0B2B4A" font-family="'Microsoft YaHei','PingFang SC',Arial,sans-serif">
+    <text x="84" y="50" font-size="34" font-weight="700" letter-spacing="0.5">中来股份</text>
+    <text x="228" y="47" font-size="17" font-weight="700" fill="#00A651" letter-spacing="2">JOLYWOOD</text>
+    <text x="84" y="80" font-size="15" font-weight="500" fill="#4B627A" letter-spacing="0.3">ZL-Volt 光伏电站全生命周期平台</text>
+  </g>
+
+  <!-- 装饰线 -->
+  <rect x="84" y="60" width="240" height="2" rx="1" fill="#E6F4EC"/>
+  <circle cx="330" cy="61" r="3.5" fill="#00A651"/>
+</svg>

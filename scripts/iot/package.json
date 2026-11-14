@@ -1,0 +1,15 @@
+{
+  "name": "zl-volt-iot-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ZL-Volt MQTT fake device simulator and MQTT/Kafka/ClickHouse bridge",
+  "scripts": {
+    "simulate": "node mqtt-device-simulator.js",
+    "subscribe": "node mqtt-device-simulator.js --mode subscribe",
+    "bridge": "node mqtt-to-kafka-clickhouse.js"
+  },
+  "dependencies": {
+    "kafkajs": "^2.2.4",
+    "mqtt": "^5.10.1"
+  }
+}
