@@ -40,6 +40,9 @@ const STATUS_MAP = {
     EFFECTIVE: ['green', '已生效'],
     WON: ['green', '赢单'],
     DONE: ['green', '已完成'],
+    COMPLETED: ['green', '已完工'],
+    CLEARED: ['gray', '已清除'],
+    ALARM_OPEN: ['orange', '未处理'],
     RECEIVED: ['green', '已收货'],
     STORED: ['green', '已入库'],
     MATCHED: ['green', '已匹配'],
@@ -1269,7 +1272,7 @@ async function renderOm() {
                     <td>${badge(a.level)}</td>
                     <td>${esc(a.content)}</td>
                     <td>${fmtDate(a.alarmTime)}</td>
-                    <td>${badge(a.status)}</td>
+                    <td>${badge(a.status === 'OPEN' ? 'ALARM_OPEN' : a.status)}</td>
                     <td>${a.workOrderId ? `<span class="mono">#${a.workOrderId}</span>` : '-'}</td>
                     <td class="actions-cell">${actions}</td>
                 </tr>`;
